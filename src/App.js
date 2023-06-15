@@ -1,24 +1,34 @@
+import { useRef,useState } from "react";
 
 
 function App() {
   return (
     <>
-    <h1>Props demo</h1>
+    <h1>stateful list</h1>
     <ListDemo />
 
     </>
   );
 }
 function ListDemo(){
-  let data = "Hello Universe";
-  let list = ["delhi", "calcutta", "chennai"];
+  let inputRef=useRef();
+  let [list,setList] =useState(["delhi"]);
+
+  let addItemAction=() => {
+    let inputValue=inputRef.current.value;
+    let newList = [inputValue,...list];
+    setList(newList);
+    inputRef.current.value="";
+  };
 
   return(
     <>
+    <input type="text" id="id1"ref={inputRef}placeholder="Enter user input..."/>
+    <input type="button"value="Add New Item" onClick={addItemAction}/>
     
-    <h1>{data}</h1>
+    
     {list.map((item)=>(<><h1>
-      Hello World
+      {item}
     </h1></>
     ))}
   </>
