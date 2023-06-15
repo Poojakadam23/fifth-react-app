@@ -5,18 +5,18 @@ function App() {
     <>
     <h1>Props demo</h1>
 
-    <MessageDemo message="Hello"/>
-    <MessageDemo username="Pooja"/>
-    <MessageDemo username="Nikhil"/>
-    <MessageDemo username="Pradip"/>
+    <MessageDemo username="Pinky"/>
+    <MessageDemo username="Pooja" email="P@gmail.com"/>
+    <MessageDemo username="Nikhil"email="N@gmail.com"/>
+    <MessageDemo username="Pradip"email="G@gmail.com"/>
 
     </>
   );
 }
-function MessageDemo(props){
+function MessageDemo({email,username}){
   return(
     <>
-    <h1>Hello {props.username} </h1>
+    <h1>Hello {username} {email} </h1>
     </>
   );
 }
