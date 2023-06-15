@@ -4,17 +4,19 @@ function App() {
   return (
     <>
     <h1>Props demo</h1>
-    <MessageDemo/>
-    <MessageDemo/>
-    <MessageDemo/>
+
+    <MessageDemo message="Hello"/>
+    <MessageDemo username="Pooja"/>
+    <MessageDemo username="Nikhil"/>
+    <MessageDemo username="Pradip"/>
 
     </>
   );
 }
-function MessageDemo(){
+function MessageDemo(props){
   return(
     <>
-    <h1>Hello Message</h1>
+    <h1>Hello {props.username} </h1>
     </>
   );
 }
