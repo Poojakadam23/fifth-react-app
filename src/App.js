@@ -1,53 +1,39 @@
-import { useRef,useState } from "react";
-
-
 function App() {
   return (
     <>
-    <h1>stateful list</h1>
-    <ListDemo />
-
+      <h1>Props Demo</h1>
+      <ListDemo />
     </>
   );
 }
-function ListDemo(){
-  let inputRef=useRef();
-  let [list,setList] =useState(["delhi"]);
 
-  let addItemAction=() => {
-    let inputValue=inputRef.current.value;
-    let newList = [inputValue,...list];
-    setList(newList);
-    inputRef.current.value="";
-  };
+function ListDemo() {
+  let data = "Hello Universe";
+  let list = ["", "", "", "", ""];
 
-  return(
+  let list1 = [];
+  for (let i = 0; i < 100; i++) {
+    list1.push("");
+  }
+
+  return (
     <>
-    <input type="text" id="id1"ref={inputRef}placeholder="Enter user input..."/>
-    <input type="button"value="Add New Item" onClick={addItemAction}/>
-    {list.map((item) => (
-        <MessageDemo message={item} />
+      <h1>{data}</h1>
+
+      {list1.map((item) => (
+        <div>
+          <h1>Hello Universe</h1>
+        </div>
+      ))}
+
+      <hr />
+      {list.map((item) => (
+        <div>
+          <h1>Hello World</h1>
+        </div>
       ))}
     </>
   );
- }
- function MessageDemo({ message }) {
-  return (
-    <>
-      <h1>Hello {message}</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
-        dolorem quas sequi tenetur quo odit cupiditate assumenda voluptas
-        quibusdam blanditiis voluptatem quis mollitia eaque molestiae animi,
-        provident eligendi facilis incidunt.
-      </p>
-      <div>
-        <input type="button" value="&#128077;" />
-        <input type="button" value="&#128078;" />
-      </div>
-    </>
-  );
-}  
-   
+}
 
 export default App;
