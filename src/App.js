@@ -25,24 +25,29 @@ function ListDemo(){
     <>
     <input type="text" id="id1"ref={inputRef}placeholder="Enter user input..."/>
     <input type="button"value="Add New Item" onClick={addItemAction}/>
-    
-   {list.map((item)=>(
-    <div>
-      <h1>{item}</h1>
+    {list.map((item) => (
+        <MessageDemo message={item} />
+      ))}
+    </>
+  );
+ }
+ function MessageDemo({ message }) {
+  return (
+    <>
+      <h1>Hello {message}</h1>
       <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
-       sit laborum quia non hic doloribus id quisquam consequuntur quis
-      iusto quod, assumenda vitae, molestias ipsa ex labore quaerat
-      ducimus accusamus.
-
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+        dolorem quas sequi tenetur quo odit cupiditate assumenda voluptas
+        quibusdam blanditiis voluptatem quis mollitia eaque molestiae animi,
+        provident eligendi facilis incidunt.
       </p>
       <div>
-        <input type="button" value="&#128077;"/>
-        <input type="button" value="&#128078;"/>
+        <input type="button" value="&#128077;" />
+        <input type="button" value="&#128078;" />
       </div>
-    </div>
-   ))}
-   </>
+    </>
   );
-}
+}  
+   
+
 export default App;
