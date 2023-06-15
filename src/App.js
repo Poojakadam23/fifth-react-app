@@ -1,39 +1,43 @@
-function App() {
+import { useRef,useState } from "react";
+
+function App(){
   return (
     <>
-      <h1>Props Demo</h1>
-      <ListDemo />
+    <h1>My Todo</h1>
+    <MyTodo />
     </>
   );
 }
 
-function ListDemo() {
-  let data = "Hello Universe";
-  let list = ["", "", "", "", ""];
+function MyTodo(){
+  let [todo, setTodo]= useState({task:""});
+  let handleChnageTaskAction = (e) => {
+    console.log(e.target);
+    // e.target === input object
 
-  let list1 = [];
-  for (let i = 0; i < 100; i++) {
-    list1.push("");
-  }
+    let newTodo = { ...todo, task: e.target.value };
+    setTodo(newTodo);
+  };
+
+  // S4 :: We will be making API call.
+  let addTodoAction = () => {
+    alert(todo.task);
+  };
 
   return (
     <>
-      <h1>{data}</h1>
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Enter task"
+        value={todo.task}
+        onChange={handleChnageTaskAction}
+      />
 
-      {list1.map((item) => (
-        <div>
-          <h1>Hello Universe</h1>
-        </div>
-      ))}
-
-      <hr />
-      {list.map((item) => (
-        <div>
-          <h1>Hello World</h1>
-        </div>
-      ))}
+      <input type="button" value="Add Todo" onClick={addTodoAction} />
     </>
   );
 }
 
 export default App;
+
