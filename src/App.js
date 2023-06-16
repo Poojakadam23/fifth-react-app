@@ -1,14 +1,13 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import MyTodo from "./pages/MyTodo";
 import MyRegistration from "./pages/MyRegistration";
+import MyNavigationLinks from "./pages/MyNavigationLinks";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Link to={"/home"}>Home |</Link>
-        <Link to={"/todo"}>Todo |</Link>
-        <Link to={"/registration"}>Registration</Link>
+        <MyNavigationLinks />
 
         <Routes>
           {/** 1 Route means 1 Page */}
@@ -18,6 +17,8 @@ function App() {
           <Route path="/registration" element={<MyRegistration />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
+
+        <MyNavigationLinks />
       </BrowserRouter>
     </>
   );
