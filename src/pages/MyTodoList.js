@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function MyTodoList() {
   let [todoList, setTodoList] = useState([]);
+  useEffect(() => {
+    getAllTodoAction();
+  }, []);
 
   let getAllTodoAction = async () => {
     let url = `http://localhost:4000/find-all-todo`;
@@ -16,11 +19,7 @@ function MyTodoList() {
   return (
     <>
       <h1>Display All Todo</h1>
-      <input
-        type="button"
-        value="Get All Data from Server"
-        onClick={getAllTodoAction}
-      />
+     
 
       {todoList.map((item) => (
         <>
